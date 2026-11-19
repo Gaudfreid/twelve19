@@ -4,8 +4,9 @@ import { Art } from '../components/art'
 const live = [
   { to: '/', label: 'Home', Icon: Home }, { to: '/shopping', label: 'Shopping', Icon: ShoppingCart },
   { to: '/pantry', label: 'Pantry', Icon: Package }, { to: '/money', label: 'Bills & Expenses', Icon: Receipt },
+  { to: '/calendar', label: 'Calendar', Icon: CalendarDays }, { to: '/chores', label: 'Chores', Icon: ClipboardCheck }, { to: '/wishlist', label: 'Wishlist', Icon: Heart },
 ]
-const soon = [{ label: 'Calendar', Icon: CalendarDays }, { label: 'Chores', Icon: ClipboardCheck }, { label: 'Wishlist', Icon: Heart }, { label: 'Documents', Icon: FileText }]
+const soon = [{ label: 'Documents', Icon: FileText }]
 const mobile = [
   { to: '/', label: 'Home', Icon: Home }, { to: '/shopping', label: 'Shop', Icon: ShoppingCart },
   { to: '/pantry', label: 'Pantry', Icon: Package }, { to: '/money', label: 'Money', Icon: Wallet }, { to: '/settings', label: 'More', Icon: Menu },
