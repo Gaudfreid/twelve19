@@ -19,8 +19,8 @@ export default function Settings() {
     if (!fail(error)) setLink(`${location.origin}${location.pathname}#/invite/${data}`)
   }
   return <div className="flex flex-col gap-4"><Title>Settings</Title>
-    <div className="grid grid-cols-3 gap-3 md:hidden">{[['/calendar', '📅', 'Calendar'], ['/chores', '✅', 'Chores'], ['/wishlist', '💝', 'Wishlist']].map(([to, e, l]) =>
-      <Link key={to} to={to} className="rounded-3xl border border-line bg-surface p-4 text-center text-sm font-semibold"><div className="text-2xl">{e}</div>{l}</Link>)}</div>
+    <div className="grid grid-cols-4 gap-2 md:hidden">{[['/calendar', '📅', 'Calendar'], ['/chores', '✅', 'Chores'], ['/wishlist', '💝', 'Wishlist'], ['/documents', '📁', 'Docs']].map(([to, e, l]) =>
+      <Link key={to} to={to} className="rounded-3xl border border-line bg-surface p-3 text-center text-xs font-semibold"><div className="text-2xl">{e}</div>{l}</Link>)}</div>
     <Card><h2 className="font-semibold">{household!.name}</h2><p className="text-sm text-muted">Members: {members.map(m => m.display_name || 'Unnamed').join(', ')}</p></Card>
     <Card><h2 className="mb-2 font-semibold">Appearance (just for you)</h2><div className="flex gap-2">
       {(['light', 'dark', 'system'] as Theme[]).map(t => <Btn key={t} variant={theme === t ? 'primary' : 'ghost'} onClick={() => pick(t)} className="capitalize">{t}</Btn>)}</div></Card>
