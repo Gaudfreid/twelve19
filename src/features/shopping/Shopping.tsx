@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { supabase } from '../../lib/supabase'
 import { useLive } from '../../lib/live'
 import { useAuth } from '../auth/AuthProvider'
-import { Btn, Card, Title, fail, input, peso } from '../../components/ui'
+import { Avatar, Btn, Card, Tile, Title, emojiFor, fail, input, peso } from '../../components/ui'
 
 export default function Shopping() {
   const { household, session, members } = useAuth(); const hh = household!.id; const uid = session!.user.id
@@ -50,10 +50,11 @@ export default function Shopping() {
       {shown.length === 0 && <p className="p-4 text-sm text-muted">{tab === 'buy' ? "Let's get what we need!" : 'Nothing bought yet.'}</p>}
       {shown.map(i => <div key={i.id} className="flex items-center gap-3 p-3">
         {tab === 'buy' && <input type="checkbox" className="h-5 w-5 accent-[var(--pink)]" checked={i.id in cart} onChange={() => toggle(i)} aria-label={`In cart: ${i.name}`} />}
+        <Tile>{emojiFor(i.name)}</Tile>
         <div className="flex-1"><div className={i.id in cart ? 'line-through text-muted' : ''}>{i.name}</div>
           <div className="text-xs text-muted">{Number(i.quantity)}{i.unit ? ` ${i.unit}` : ''}{i.estimated_unit_price != null && ` · ${peso(Number(i.estimated_unit_price))}`}{i.pantry_item_id && ' · pantry-linked'}</div></div>
         {i.id in cart && <input className={`${input} w-24`} type="number" step="any" placeholder="₱ actual" value={cart[i.id]} onChange={e => setCart(c => ({ ...c, [i.id]: e.target.value }))} />}
-        <span className="grid h-7 w-7 place-items-center rounded-full bg-lav/40 text-xs font-bold" title="Added by">{initial(i.created_by)}</span>
+        <Avatar id={i.created_by} />
         {tab === 'buy' && <button className="text-xs text-muted" onClick={async () => fail((await supabase!.from('shopping_items').update({ status: 'cancelled' }).eq('id', i.id)).error)}>✕</button>}
       </div>)}
     </Card>

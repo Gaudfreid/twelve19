@@ -3,4 +3,4 @@
 :root{--bg:#FFF9F5;--surface:#FFFFFF;--pink:#D98DA6;--sage:#91AD96;--lav:#B5A9D5;--sun:#F1CF88;--ink:#443B3A;--muted:#857B78;--line:#EFE6E1}
 .dark{--bg:#171923;--surface:#222633;--pink:#D995B0;--sage:#9BBDA4;--lav:#B9AFE2;--sun:#EACB83;--ink:#F4F0F0;--muted:#B0AAB2;--line:#383D4B}
 @theme inline{--color-bg:var(--bg);--color-surface:var(--surface);--color-pink:var(--pink);--color-sage:var(--sage);--color-lav:var(--lav);--color-sun:var(--sun);--color-ink:var(--ink);--color-muted:var(--muted);--color-line:var(--line)}
-body{background:var(--bg);color:var(--ink);font-family:ui-rounded,"Nunito","Segoe UI",system-ui,sans-serif;padding-top:env(safe-area-inset-top)}
+body{background:radial-gradient(900px 380px at 92% -8%,color-mix(in srgb,var(--pink) 22%,transparent),transparent),var(--bg);background-attachment:fixed;color:var(--ink);font-family:ui-rounded,"Nunito","Segoe UI",system-ui,sans-serif;padding-top:env(safe-area-inset-top)}

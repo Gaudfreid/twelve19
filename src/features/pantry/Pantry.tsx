@@ -3,7 +3,7 @@ import { supabase } from '../../lib/supabase'
 import { useLive } from '../../lib/live'
 import { pantryState } from '../../lib/pantry'
 import { useAuth } from '../auth/AuthProvider'
-import { Btn, Card, Chip, Title, fail, input } from '../../components/ui'
+import { Btn, Card, Chip, Tile, Title, emojiFor, fail, input } from '../../components/ui'
 
 const LOCS = { refrigerator: 'Fridge', freezer: 'Freezer', kitchen_pantry: 'Pantry', spice_rack: 'Spices', other: 'Other' } as const
 const tone = { out: 'pink', low: 'sun', expiring: 'sun', good: 'sage' } as const
@@ -45,6 +45,7 @@ export default function Pantry() {
     <div className="flex flex-col gap-2">
       {shown.length === 0 && <Card><p className="text-sm text-muted">Nothing here yet.</p></Card>}
       {shown.map(i => { const s = pantryState(i); return <Card key={i.id} className="flex items-center gap-3 !p-3">
+        <Tile tone="sage">{emojiFor(i.name)}</Tile>
         <div className="flex-1"><div className="font-medium">{i.name}</div>
           <div className="text-xs text-muted">{LOCS[i.location as keyof typeof LOCS]}{i.expiration_date && ` · Exp ${i.expiration_date}`}{Number(i.minimum_quantity) > 0 && ` · min ${Number(i.minimum_quantity)}`}</div></div>
         <Chip tone={tone[s]}>{label[s]}</Chip>
