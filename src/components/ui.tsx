@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
+import { Art } from './art'
 import { useAuth } from '../features/auth/AuthProvider'
 export const input = 'w-full rounded-xl border border-line bg-surface px-3 py-2 text-ink placeholder:text-muted outline-none focus:ring-2 focus:ring-pink/60'
 export const peso = (n: number) => new Intl.NumberFormat('en-PH', { style: 'currency', currency: 'PHP' }).format(n)
@@ -27,4 +28,11 @@ export function Avatar({ id, size = 'h-7 w-7' }: { id?: string | null; size?: st
   const { members } = useAuth(); const i = members.findIndex(m => m.id === id)
   const name = members[i]?.display_name || '?'
   return <span title={name} className={`grid ${size} place-items-center rounded-full border-2 border-surface text-xs font-bold ${AV[Math.max(i, 0) % 4]}`}>{name[0].toUpperCase()}</span>
+}
+
+const IMG: Record<string, string> = { milk: 'milk', egg: 'eggs', rice: 'rice', oil: 'oil', onion: 'onion' }
+export function ItemIcon({ name, size = 'h-12 w-12' }: { name: string; size?: string }) {
+  const k = Object.keys(IMG).find(x => name.toLowerCase().includes(x))
+  return <span className={`grid ${size} shrink-0 place-items-center rounded-2xl bg-pink/10`}>
+    {k ? <Art name={IMG[k]} className="h-9 w-9" /> : <span className="text-2xl">{emojiFor(name)}</span>}</span>
 }
