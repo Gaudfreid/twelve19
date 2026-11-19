@@ -1,11 +1,11 @@
 import { Link, NavLink, Outlet } from 'react-router-dom'
-import { CalendarDays, ClipboardCheck, FileText, Heart, Home, Menu, Package, Receipt, Settings, ShoppingCart, Wallet } from 'lucide-react'
+import { Gamepad2, CalendarDays, ClipboardCheck, FileText, Heart, Home, Menu, Package, Receipt, Settings, ShoppingCart, Wallet } from 'lucide-react'
 import { Art } from '../components/art'
 const live = [
   { to: '/', label: 'Home', Icon: Home }, { to: '/shopping', label: 'Shopping', Icon: ShoppingCart },
   { to: '/pantry', label: 'Pantry', Icon: Package }, { to: '/money', label: 'Bills & Expenses', Icon: Receipt },
   { to: '/calendar', label: 'Calendar', Icon: CalendarDays }, { to: '/chores', label: 'Chores', Icon: ClipboardCheck }, { to: '/wishlist', label: 'Wishlist', Icon: Heart },
-  { to: '/documents', label: 'Documents', Icon: FileText },
+  { to: '/documents', label: 'Documents', Icon: FileText }, { to: '/game-corner', label: 'Game Corner', Icon: Gamepad2 },
 ]
 const soon: { label: string; Icon: typeof Home }[] = []
 const mobile = [

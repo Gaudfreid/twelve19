@@ -10,6 +10,7 @@ import Money from '../features/money/Money'
 import Calendar from '../features/calendar/Calendar'
 import Chores from '../features/chores/Chores'
 import Documents from '../features/documents/Documents'
+import GameCorner from '../features/game-corner/GameCorner'
 import Wishlist from '../features/wishlist/Wishlist'
 import Settings from '../features/settings/Settings'
 
@@ -22,7 +23,7 @@ function Gate() {
     <Route path="/invite/:token" element={<Invite />} />
     <Route element={<Layout />}>
       <Route index element={<Dashboard />} /><Route path="shopping" element={<Shopping />} />
-      <Route path="pantry" element={<Pantry />} /><Route path="money" element={<Money />} /><Route path="calendar" element={<Calendar />} /><Route path="chores" element={<Chores />} /><Route path="wishlist" element={<Wishlist />} /><Route path="documents" element={<Documents />} /><Route path="settings" element={<Settings />} />
+      <Route path="pantry" element={<Pantry />} /><Route path="money" element={<Money />} /><Route path="calendar" element={<Calendar />} /><Route path="chores" element={<Chores />} /><Route path="wishlist" element={<Wishlist />} /><Route path="documents" element={<Documents />} /><Route path="game-corner" element={<GameCorner />} /><Route path="settings" element={<Settings />} />
     </Route>
   </Routes>
 }
